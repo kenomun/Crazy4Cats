@@ -18,10 +18,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: { admin: "admin", user: "user", anonymous: "anonymous" }
+  enum role: { admin: "admin", user: "user" }
 
   #relaciones
   has_many :posts
+  has_many :comments
   
   #Validaciones
   validates :name, presence: true

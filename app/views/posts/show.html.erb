@@ -1,10 +1,75 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @post %>
-
-<div>
-  <%= link_to "Edit this post", edit_post_path(@post) %> |
-  <%= link_to "Back to posts", posts_path %>
-
-  <%= button_to "Destroy this post", @post, method: :delete %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="container mt-3">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <%= link_to "Volver a las publicaciones", root_path, class: "btn btn-secondary mb-3" %>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= @post.title %></h5>
+            <% if @post.image.attached? %>
+              <div class="text-center">
+                <%= image_tag @post.image, class: "img-fluid mb-3" if @post.image.attached? %>
+              </div>
+            <% end %>
+            <h5 class="card-title">Articulo: </h5>
+            <p class="card-text"><%= @post.content %></p>
+            <div class="d-flex justify-content-end">
+              <% if user_signed_in? && current_user.admin? || current_user == @post.user %>
+                <%= link_to "Editar publicación", edit_post_path(@post), class: "btn btn-warning btn-sm me-2" %>
+                <%= button_to "Eliminar publicación", @post, method: :delete, class: "btn btn-danger btn-sm" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if @post.comments.present? %>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Comentarios:</h5>
+              <% @post.comments.each do |comment| %>
+                <div class="card mb-2">
+                  <div class="card-body">
+                    <p class="card-text"><strong>Usuario: <%= comment.user ? comment.user.name : "Anónimo" %></strong></p>
+                    <p class="card-text"><%= comment.content %></p>
+                    <% if current_user&.admin? || (current_user && comment.user == current_user) %>
+                      <div class="d-flex justify-content-end">
+                        <%= button_to "Eliminar comentario", [@post, comment], method: :delete, class: "btn btn-danger btn-sm" %>
+                      </div>
+                    <% end %>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="container mt-3">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Comentarios: </h5>
+              <p class="card-text mt-2">No hay comentarios disponibles.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <% if user_signed_in? %>
+    <%= render partial: "posts/form_comment", locals: { comment: Comment.new, style: "width: 100%;" } %>
+  <% else %>
+    <%= render partial: "posts/form_comment_anonymous", locals: { comment: Comment.new, style: "width: 100%;" } %>
+  <% end %>
 </div>
