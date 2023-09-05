@@ -1,10 +1,26 @@
 <div class="container">
   <% if defined?(post) %>
-    <div class="btn-group" role="group">
-      <% PostReaction.kinds.each do |kind| %>
-        <%= button_to "#{kind}", user_reaction_post_post_path(post_id: post.id, kind: kind),
-                               method: :post, class: "btn btn-primary" %>
-      <% end %>
+    <% like_count = @post.post_reactions.where(kind: 'like').count %>
+    <% dislike_count = @post.post_reactions.where(kind: 'dislike').count %>
+    <div class="container">
+      <div class="row">
+        <% PostReaction.kinds.each do |kind| %>
+          <% icon_class = kind == 'like' ? 'fas fa-thumbs-up' : 'fas fa-thumbs-down' %>
+          <% reaction = user_signed_in? ? @post.post_reactions.find_by(user_id: current_user.id, kind: kind) : nil %>
+          <div class="col">
+            <% button_classes = reaction.present? ? (kind == 'like' ? 'btn btn-link text-success' : 'btn btn-link text-danger') : 'btn btn-link' %>
+            <%= button_to user_signed_in? ? user_reaction_post_post_path(post_id: post.id, kind: kind) : '#',
+           method: :post, class: button_classes, disabled: !user_signed_in? do %>
+              <i class="<%= icon_class %>"></i>
+            <% end %>
+            <% if kind == 'like' %>
+              <%= like_count %> - <%= kind %>
+            <% else %>
+              <%= dislike_count %> - <%= kind %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   <% elsif defined?(comment) && comment.present? %>
     <% PostReaction.kinds.each do |kind| %>

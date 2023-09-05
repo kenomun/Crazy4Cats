@@ -9,23 +9,18 @@
         </div>
         <div class="card">
           <div class="card-body">
+            <h class="card-title">Autor: <%= @post.user.name %></h6>
             <h5 class="card-title"><%= @post.title %></h5>
             <% if @post.image.attached? %>
               <div class="text-center">
                 <%= image_tag @post.image, class: "img-fluid mb-3" if @post.image.attached? %>
               </div>
             <% end %>
-            <h5 class="card-title">Articulo: </h5>
+            <h6 class="card-title">Comentario: </h6>
             <p class="card-text"><%= @post.content %></p>
-            <div>
-              <h3>Reacciones</h3>
-              <%= render 'reactions/counters' %>
+            <div style="margin-left: 40px;">
+              <%= render 'reactions/options', post: @post %>
             </div>
-            <% if user_signed_in?%>
-              <div>
-                <%= render 'reactions/options', post: @post %>
-              </div>
-            <% end %>
             <div class="d-flex justify-content-end">
               <% if user_signed_in? && current_user.admin? || current_user == @post.user %>
                 <%= link_to "Editar publicación", edit_post_path(@post), class: "btn btn-warning btn-sm me-2" %>
@@ -47,7 +42,7 @@
               <% @post.comments.each do |comment| %>
                 <div class="card mb-2">
                   <div class="card-body">
-                    <p class="card-text"><strong>Usuario: <%= comment.user ? comment.user.name : "Anónimo" %></strong></p>
+                    <p class="card-text"><strong>Autor: <%= comment.user ? comment.user.name : "Anónimo" %></strong></p>
                     <p class="card-text"><%= comment.content %></p>
                     <div>
                       <%= render 'reactions/options', comment: @comment %>

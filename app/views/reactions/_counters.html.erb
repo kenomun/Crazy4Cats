@@ -1,7 +1,7 @@
 <div class="container">
   <ul>
     <% PostReaction.kinds.each do |kind| %>
-      <li> <%= @post.post_reactions.where(kind: kind).count %> - <%= kind %> </li>
+      <%= @post.post_reactions.where(kind: kind).count %> - <%= kind %>
     <% end %>
   </ul>
 </div>
