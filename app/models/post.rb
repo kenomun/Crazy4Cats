@@ -13,6 +13,8 @@ class Post < ApplicationRecord
   #rRelaciones
   belongs_to :user
   has_many :comments
+  has_many :post_reactions
+  has_many :posts, through: :post_reactions
   has_one_attached :image
 
 

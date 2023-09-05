@@ -17,6 +17,15 @@
             <% end %>
             <h5 class="card-title">Articulo: </h5>
             <p class="card-text"><%= @post.content %></p>
+            <div>
+              <h3>Reacciones</h3>
+              <%= render 'reactions/counters' %>
+            </div>
+            <% if user_signed_in?%>
+              <div>
+                <%= render 'reactions/options', post: @post %>
+              </div>
+            <% end %>
             <div class="d-flex justify-content-end">
               <% if user_signed_in? && current_user.admin? || current_user == @post.user %>
                 <%= link_to "Editar publicación", edit_post_path(@post), class: "btn btn-warning btn-sm me-2" %>
@@ -40,6 +49,9 @@
                   <div class="card-body">
                     <p class="card-text"><strong>Usuario: <%= comment.user ? comment.user.name : "Anónimo" %></strong></p>
                     <p class="card-text"><%= comment.content %></p>
+                    <div>
+                      <%= render 'reactions/options', comment: @comment %>
+                    </div>
                     <% if current_user&.admin? || (current_user && comment.user == current_user) %>
                       <div class="d-flex justify-content-end">
                         <%= button_to "Eliminar comentario", [@post, comment], method: :delete, class: "btn btn-danger btn-sm" %>

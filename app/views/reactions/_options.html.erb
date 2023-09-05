@@ -1,0 +1,15 @@
+<div class="container">
+  <% if defined?(post) %>
+    <div class="btn-group" role="group">
+      <% PostReaction.kinds.each do |kind| %>
+        <%= button_to "#{kind}", user_reaction_post_post_path(post_id: post.id, kind: kind),
+                               method: :post, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  <% elsif defined?(comment) && comment.present? %>
+    <% PostReaction.kinds.each do |kind| %>
+      <li><%= button_to "#{kind}", user_reaction_comment_path(comment_id: comment.id, kind: kind),
+                                        method: :post %></li>
+    <% end %>
+  <% end %>
+</div>

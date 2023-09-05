@@ -11,6 +11,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  name                   :string
+#  role                   :string           default("user")
 #
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
@@ -23,6 +24,8 @@ class User < ApplicationRecord
   #relaciones
   has_many :posts
   has_many :comments
+  has_many :reactions
+  has_many :users, through: :reactions
   
   #Validaciones
   validates :name, presence: true

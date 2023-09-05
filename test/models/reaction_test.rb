@@ -1,21 +1,19 @@
 # == Schema Information
 #
-# Table name: comments
+# Table name: reactions
 #
 #  id         :bigint           not null, primary key
-#  content    :text
+#  kind       :string
 #  user_id    :bigint
 #  post_id    :bigint           not null
+#  comment_id :bigint
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+require "test_helper"
 
-one:
-  content: MyText
-  user: one
-  post: one
-
-two:
-  content: MyText
-  user: two
-  post: two
+class ReactionTest < ActiveSupport::TestCase
+  # test "the truth" do
+  #   assert true
+  # end
+end
