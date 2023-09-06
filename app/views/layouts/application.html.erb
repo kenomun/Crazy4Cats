@@ -13,11 +13,18 @@
   </head>
   <body>
     <%= render 'shared/navbar' %>
-    <div>
-      <div class="container main-content">
-        <p style="color: green"><%= notice %></p>
-        <p style="color: red"><%= alert %></p>
-        <%= yield %>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Imagen izquierda -->
+        <div class="col-md-2 left-image"></div>
+        <!-- Contenido principal -->
+        <div class="col-md-8 main-content">
+          <p style="color: green"><%= notice %></p>
+          <p style="color: red"><%= alert %></p>
+          <%= yield %>
+        </div>
+        <!-- Imagen derecha -->
+        <div class="col-md-2 right-image"></div>
       </div>
     </div>
     <footer class="footer text-center">
