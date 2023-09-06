@@ -74,9 +74,11 @@
       </div>
     </div>
   <% end %>
-  <% if user_signed_in? %>
-    <%= render partial: "posts/form_comment", locals: { comment: Comment.new, style: "width: 100%;" } %>
-  <% else %>
-    <%= render partial: "posts/form_comment_anonymous", locals: { comment: Comment.new, style: "width: 100%;" } %>
-  <% end %>
+  <div class="mt-3 mb-4">
+    <% if user_signed_in? %>
+      <%= render partial: "posts/form_comment", locals: { comment: Comment.new, style: "width: 100%;"} %>
+    <% else %>
+      <%= render partial: "posts/form_comment_anonymous", locals: { comment: Comment.new, style: "width: 100%;"} %>
+    <% end %>
+  </div>
 </div>

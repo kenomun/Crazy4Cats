@@ -12,11 +12,15 @@
     <%= stylesheet_link_tag "custom_styles" %>
   </head>
   <body>
+    <%= render 'shared/navbar' %>
     <div class="container">
-      <%= render 'shared/navbar' %>
       <p style="color: green"><%= notice %></p>
       <p style="color: red"><%= alert %></p>
       <%= yield %>
+      <div class="footer-images hide-footer <%= request.user_agent =~ /Mobile|webOS/ ? 'hide-footer' : '' %>">
+        <img src="/assets/patitas.png" alt="Imagen de borde izquierdo" class="footer-left-image">
+        <img src="/assets/patitas.png" alt="Imagen de borde derecho" class="footer-right-image">
+      </div>
     </div>
   </body>
 </html>

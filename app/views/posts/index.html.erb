@@ -5,7 +5,7 @@
   <% end %>
 <% end %>
 <div id="posts" class="mt-3">
-  <% @posts.each do |post| %>
+  <% @posts.each_with_index do |post, index| %>
     <div class="container mt-3">
       <div class="row justify-content-center">
         <div class="col-md-4">
@@ -26,5 +26,12 @@
         </div>
       </div>
     </div>
+    <% if index == @posts.size - 1 %>
+      <style>
+        .mt-3:last-child {
+          margin-bottom: 100px; /* Ajusta el margen inferior según tus necesidades */
+        }
+      </style>
+    <% end %>
   <% end %>
 </div>

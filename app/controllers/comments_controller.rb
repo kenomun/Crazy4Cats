@@ -56,7 +56,8 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     @comment = Comment.find(params[:id])
-    if current_user.admin?
+
+    if current_user.admin? || current_user == @comment.user
       @comment.destroy
       redirect_to post_path(@comment.post), notice: 'El comentario se a liminado de forma existosa.'
     else

@@ -1,11 +1,11 @@
 body {
-  background-image: linear-gradient(to left,#b7a2ca, #351330);
+  background-image: linear-gradient(to left,#c3baba, #9f9b9b);
   height: 100vh;
   color: #ffffff;
 }
 
 .card {
-  background-image: linear-gradient(to left,#b7a2ca, #351330);
+  background-image: linear-gradient(to left,#9f9b9b, #c3baba);
   color: #ffffff;
   border: 2px solid #ffffff;
 }  
@@ -37,3 +37,36 @@ body {
 .navbar-nav .nav-link:hover {
   color: #ffffff;; /* Color similar al degradado del fondo */
 }
+
+
+.footer-images {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 999;
+}
+
+.footer-image {
+  height: auto;
+}
+
+.footer-left-image {
+  width: 260px;
+  height: auto;
+}
+
+.footer-right-image {
+  width: 260px;
+  height: auto;
+}
+
+@media (max-width: 830px) {
+  .hide-footer {
+    display: none;
+  }
+}
+
+

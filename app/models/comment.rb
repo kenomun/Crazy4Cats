@@ -13,7 +13,7 @@ class Comment < ApplicationRecord
   #Relaciones
   belongs_to :user , optional: true
   belongs_to :post
-  has_many :comment_reactions
+  has_many :comment_reactions, dependent: :destroy
   has_many :comments, through: :comment_reactions
 
   #Validaciones
