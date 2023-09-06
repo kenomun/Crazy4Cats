@@ -25,6 +25,10 @@
               <%= f.label :confrimar_contraseña %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
             </div>
+            <div class="mb-3">
+              <%= f.label :profile_image, class: "form-label" %>
+              <%= f.file_field :profile_image, class: "form-control" %>
+            </div>
             <div class="actions mt-3">
               <div class="d-flex justify-content-between">
                 <%= link_to "Volver a las publicaciones", root_path, class: "btn btn-secondary btn-sm" %>

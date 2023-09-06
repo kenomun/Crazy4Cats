@@ -1,8 +1,8 @@
-<h2 class="mb-3">Editar tu cuenta</h2>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
+        <h1 class="card-title">Editar tu cuenta</h1>
         <div class="card-body">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
             <%= render "devise/shared/error_messages", resource: resource %>
@@ -27,6 +27,10 @@
             <div class="field mt-2">
               <%= f.label :confirmar_contraseña %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control mt-3" %>
+            </div>
+            <div class="mb-3">
+              <%= f.label :profile_image, class: "form-label" %>
+              <%= f.file_field :profile_image, class: "form-control" %>
             </div>
             <div class="field mt-2">
               <%= f.label :contraseña_actual %><br />

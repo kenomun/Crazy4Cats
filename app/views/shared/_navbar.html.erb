@@ -7,11 +7,14 @@
       <ul class="navbar-nav">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <% if current_user.name.present? %>
-              <span class="nav-link">Hola: <%= current_user.name %></span>
-            <% else %>
-              <span class="nav-link">Hola <%= current_user.email %></span>
-            <% end %>
+            <div class="d-flex align-items-center">
+              <% if current_user.profile_image.attached? %>
+                <%= image_tag current_user.profile_image, class: "rounded-image" %>
+              <% else %>
+                <%= image_tag "default_profile_image.png", class: "rounded-image" %>
+              <% end %>
+              <span class="nav-link"><%= current_user.name %></span>
+            </div>
           </li>
           <li class="nav-item">
             <%= link_to "Editar perfil", edit_user_registration_path, class: "nav-link" %>

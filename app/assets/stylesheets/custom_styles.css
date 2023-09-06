@@ -38,35 +38,31 @@ body {
   color: #ffffff;; /* Color similar al degradado del fondo */
 }
 
+.rounded-image {
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  width: 30px; /* Ajusta el tamaño según tus preferencias */
+  height: 30px; /* Ajusta el tamaño según tus preferencias */
+  object-fit: cover; /* Escala la imagen para que cubra el círculo */
+}
 
-.footer-images {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+/* .main-content {
+  min-height: calc(100vh - 150px);
+  margin-bottom: 50px; 
+} */ 
+
+.wrapper {
+  min-height: 100%;
   display: flex;
-  justify-content: space-between;
-  z-index: 999;
+  flex-direction: column;
 }
 
-.footer-image {
-  height: auto;
+.main-content {
+  min-height: calc(100vh - 150px);
+  flex: 1;
+  padding: 20px; 
 }
 
-.footer-left-image {
-  width: 260px;
-  height: auto;
+.footer {
+  background-color: rgba(114, 102, 102, 0.2);
+  padding: 10px;
 }
-
-.footer-right-image {
-  width: 260px;
-  height: auto;
-}
-
-@media (max-width: 830px) {
-  .hide-footer {
-    display: none;
-  }
-}
-
-

@@ -26,6 +26,7 @@ class User < ApplicationRecord
   has_many :post_reactions
   has_many :comments
   has_many :comment_reactions
+  has_one_attached :profile_image
  
   
   #Validaciones

@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
 		end
 	end
     def configure_permitted_parameters
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :age, :phone])
-		devise_parameter_sanitizer.permit(:account_update, keys: [:name, :age, :phone])
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :profile_image])
+		devise_parameter_sanitizer.permit(:account_update, keys: [:name, :profile_image])
 	end
 	
 	def after_sign_in_path_for(resource)
