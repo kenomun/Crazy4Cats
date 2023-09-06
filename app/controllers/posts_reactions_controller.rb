@@ -25,8 +25,5 @@ class PostsReactionsController < ApplicationController
 			format.html { redirect_to post_path(@post) }
 		end
 	end
-	
-
-
 end
   

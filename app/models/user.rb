@@ -23,9 +23,10 @@ class User < ApplicationRecord
 
   #relaciones
   has_many :posts
+  has_many :post_reactions
   has_many :comments
-  has_many :reactions
-  has_many :users, through: :reactions
+  has_many :comment_reactions
+ 
   
   #Validaciones
   validates :name, presence: true
