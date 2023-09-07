@@ -2,6 +2,11 @@
 
 Crazy4Cats es una aplicación web diseñada para amantes de los gatos donde los usuarios pueden compartir publicaciones relacionadas con estos adorables felinos. Los usuarios pueden registrarse, iniciar sesión, crear publicaciones, agregar comentarios, dar reacciones a las publicaciones y comentarios, y más. ¡Únete a nuestra comunidad de amantes de los gatos y comparte tu pasión por estos animales!
 
+## Demo 
+
+Puedes ver un demo subido a Heroku [aquí](https://desolate-woodland-61277-bf29f96a4a74.herokuapp.com/).
+
+
 ## Funcionalidades
 
 - **Registro de Usuarios:** Los usuarios pueden registrarse con su nombre, dirección de correo electrónico y contraseña. También pueden cargar una imagen de perfil opcional.
@@ -23,7 +28,7 @@ Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
 1. Clona el repositorio de GitHub:
 
    ```bash
-   git clone https://github.com/tuusuario/Crazy4Cats.git
+   git clone https://github.com/kenomun/Crazy4Cats.git
 
 2. Ve al directorio del proyecto:
 
@@ -45,7 +50,7 @@ Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
 
 ## Requisitos del Sistema
 
-- Ruby 2.1.2 o superior
+- Ruby 3.1.2 o superior
 - Ruby on Rails 7.0.2 o superior
 - Postgres (base de datos predeterminada)
 - Bundler (para instalar gemas)
