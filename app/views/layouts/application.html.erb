@@ -15,23 +15,18 @@
     <%= render 'shared/navbar' %>
     <div class="container-fluid">
       <div class="row">
-        <!-- Imagen izquierda -->
         <div class="col-md-2 left-image"></div>
-        <!-- Contenido principal -->
         <div class="col-md-8 main-content">
           <p style="color: green"><%= notice %></p>
           <p style="color: red"><%= alert %></p>
           <%= yield %>
         </div>
-        <!-- Imagen derecha -->
-        <div class="col-md-2 right-image"></div>
       </div>
-    </div>
-    <footer class="footer text-center">
-      <div class="text-center p-3">
-        © 2020 Copyright:
-        <a class="text-dark" href="https://github.com/kenomun/Crazy4Cats">Eugenio Muñoz</a>
-      </div>
-    </footer>
-  </body>
-</html>
+      <footer class="footer text-center mt-3">
+        <div class="text-center p-3">
+          © 2020 Copyright:
+          <a class="text-dark" href="https://github.com/kenomun/Crazy4Cats">Eugenio Muñoz</a>
+        </div>
+      </footer>
+    </body>
+  </html>
