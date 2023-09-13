@@ -10,12 +10,12 @@
 #  updated_at :datetime         not null
 #
 
-one:
-  content: MyText
-  user: one
-  post: one
+# one:
+#   content: MyText
+#   user: one
+#   post: one
 
-two:
-  content: MyText
-  user: two
-  post: two
+# two:
+#   content: MyText
+#   user: two
+#   post: two
