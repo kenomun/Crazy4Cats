@@ -21,6 +21,7 @@ Puedes ver un demo subido a Heroku [aquí](https://desolate-woodland-61277-bf29f
 
 - **Administración de Cuentas:** Los administradores pueden realizar acciones adicionales, como editar y eliminar publicaciones de otros usuarios.
 
+
 ## Instalación
 
 Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
@@ -47,6 +48,10 @@ Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
 - rails db:seed
 
 6. Abre tu navegador web y visita http://localhost:3000 para acceder a la aplicación.
+
+7. Para la revision test de post se ejecuta en consola:
+
+- rails test
 
 ## Requisitos del Sistema
 
