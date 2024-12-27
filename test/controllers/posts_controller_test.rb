@@ -94,7 +94,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_difference("Post.count", -1) do
       # Verifica que la Imagen haya sido eliminada de active storage.
       assert_difference("ActiveStorage::Attachment.count", -1) do
-        delete post_post(@post)
+        delete post_path(@post)
       end
     end
     #Verifica la redireccion despues de eliinar el post
