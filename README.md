@@ -2,7 +2,6 @@
 
 Crazy4Cats es una aplicación web diseñada para amantes de los gatos donde los usuarios pueden compartir publicaciones relacionadas con estos adorables felinos. Los usuarios pueden registrarse, iniciar sesión, crear publicaciones, agregar comentarios, dar reacciones a las publicaciones y comentarios, y más. ¡Únete a nuestra comunidad de amantes de los gatos y comparte tu pasión por estos animales!
 
-
 ## Funcionalidades
 
 - **Registro de Usuarios:** Los usuarios pueden registrarse con su nombre, dirección de correo electrónico y contraseña. También pueden cargar una imagen de perfil opcional.
@@ -17,7 +16,6 @@ Crazy4Cats es una aplicación web diseñada para amantes de los gatos donde los 
 
 - **Administración de Cuentas:** Los administradores pueden realizar acciones adicionales, como editar y eliminar publicaciones de otros usuarios.
 
-
 ## Instalación
 
 Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
@@ -26,6 +24,8 @@ Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
 
    ```bash
    git clone https://github.com/kenomun/Crazy4Cats.git
+
+   ```
 
 2. Ve al directorio del proyecto:
 
@@ -36,7 +36,7 @@ Para clonar y ejecutar esta aplicación en tu máquina local, sigue estos pasos:
 - bundle install
 
 4. Configura la base de datos y ejecuta las migraciones:
-en el archivo congif/locales/database.yml se debe asignar su usuario y su contraseña de postgres asi como el puerto en que este esta en ejecucion en su sistema.
+   en el archivo congif/locales/database.yml se debe asignar su usuario y su contraseña de postgres asi como el puerto en que este esta en ejecucion en su sistema.
 
 - rails db:create
 - rails db:migrate
@@ -44,9 +44,16 @@ en el archivo congif/locales/database.yml se debe asignar su usuario y su contra
 6. crear un usuario admin, y dos usuarios de prueba, crear post de cada usuarios, crear comentarios de usuarios y comentarios anónimos, y reacciones a post y comentarios.
 
 ir al archivo db/migrate/seeds.rb y descomentar todas las lineas (algunas quedaran comentadas de igual forma ya que trabajan a modod de titulo para mayor claridad)
+
 - ejecutar en la temrinal el comando " rails db:seed "
 
-6. Abre tu navegador web y visita http://localhost:3000 para acceder a la aplicación.
+7. E$jecutar el comando para ejecutar la app.
+
+```
+rails server
+```
+
+8. Abre tu navegador web y visita http://localhost:3000 para acceder a la aplicación.
 
 podra crear un usuario o usar algun usuario creado por defecto en el paso anterior:
 
@@ -54,7 +61,7 @@ Admin_user: email: admin@example.com, password: 123456
 User 1: email: user1@example.com, password: 123456
 User 2 email: user2@example.com, password: 123456
 
-7. Para la revision test de post se ejecuta en consola:
+9. Para la revision test de post se ejecuta en consola:
 
 - crear base de datos de pruebas ejecutando en la temrinal " rails db:create RAILS_ENV=test "
 - correr migraciones en entorno de pruebas ejecutando en la temrinal " rails db:migrate RAILS_ENV=test "
